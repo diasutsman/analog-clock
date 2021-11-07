@@ -131,26 +131,6 @@ table {
 
 /* my style */
 
-/*
-.second0 {
-    font-weight: bold;
-    font-size: 30px;
-    position: absolute;
-    /*top: 50%;
-    left: 50%;
-    .clock {
-    width: calc(813px/2);
-    height: calc(813px/2);
-    background-color: #c4c4c4;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    padding: 0;
-}
-}*/
-
 h1 {
     font-size: xx-large;
     margin: 16px;
@@ -177,11 +157,13 @@ h1 {
 }
 
 .second .bar {
-    height: 5px;
-    width: 2px;
-    background-color: black;
     position: absolute;
     top: 0;
+    width: 2px;
+
+    /* customizable */
+    height: 5px;
+    background-color: black;
 }
 
 .second .number {
@@ -198,6 +180,8 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    
+    /* customizable */
     height: 5px;
     width: 5px;
     background-color: black;
@@ -219,13 +203,15 @@ h1 {
 
 #second div {
     position: absolute;
-    height: 200px;
-    width: 1px;
-    background-color: red;
     bottom: -20px;
     left: 50%;
-    z-index: 10;
+    width: 1px;
     transform: translateX(-50%);
+    z-index: 10;
+    
+    /* customizable */
+    height: 200px;
+    background-color: red;
 }
 
 
@@ -233,9 +219,11 @@ h1 {
     position: absolute;
     bottom: -20px;
     left: 50%;
+    width: 2px;
     transform: translateX(-50%);
     z-index: 10;
-    width: 2px;
+
+    /* customizable */
     height: 160px;
     background-color: black;
 }
@@ -247,19 +235,8 @@ h1 {
     transform: translateX(-50%);
     z-index: 10;
     width: 3px;
+
+    /* customizable */
     height: 100px;
     background-color: black;
 }
-
-/*
-#minute {
-    transform: translate(-50%, -50%) rotate(6deg);
-}
-
-#hour {
-    transform: translate(-50%, -50%) rotate(12deg);
-}
-
-#second:hover {
-    transform: translate(-50%, -50%) rotate(12deg);
-}*/
