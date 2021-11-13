@@ -104,6 +104,7 @@ section {
 
 body {
     line-height: 1;
+    font-family: 'Product Sans';
 }
 
 ol,
@@ -204,8 +205,8 @@ h1 {
 #second div {
     position: absolute;
     bottom: -20px;
-    left: 50%;
     width: 1px;
+    left: 50%;
     transform: translateX(-50%);
     z-index: 10;
     
@@ -239,4 +240,71 @@ h1 {
     /* customizable */
     height: 100px;
     background-color: black;
+}
+
+.off {
+    cursor: pointer;
+    position: absolute;
+    width: 141px;
+    height: 65px;
+    left: 33px;
+    top: 74px;
+    background-color: #e5e5e5;
+    transition: .3s background-color;
+    border-radius: 32.5px;
+}
+
+.off > div {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #FFFFFF;
+    transition: left .3s;
+}
+
+.off > p {
+    position: absolute;
+    left: calc(141px - 60px);
+    /*right: 8px;*/
+    top: 50%;
+    color: #000;
+    transform: translateY(-50%);
+    font-size: 15px;
+    text-decoration: line-through;
+}
+
+.on {
+    /*position: absolute;
+    width: 141px;
+    height: 65px;
+    left: 33px;
+    top: 74px;*/
+    background-color: #1F8BEE;
+    /*border-radius: 32.5px;*/
+}
+
+.on > div {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    left: calc(141px - 58px);
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #FFFFFF;
+}
+
+.on > p {
+    /*position: absolute;*/
+    left: 8px;
+    color: #FFFFFF;
+    font-size: 15px;
+    text-decoration: none;
+    /*top: 50%;
+    color: #FFFFFF;
+    transform: translateY(-50%);*/
 }

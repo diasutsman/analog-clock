@@ -4,6 +4,8 @@ const clock = document.querySelector('.clock')
 const hourBar = document.getElementById('hour')
 const minuteBar = document.getElementById('minute')
 const secondBar = document.getElementById('second')
+const smoothBtn = document.getElementById('smooth')
+let smooth = false
 
 // display clock
 for(let i = 0; i <= 60;i++){
@@ -19,13 +21,19 @@ for(let i = 0; i <= 60;i++){
 
 // convert now time into degrees and apply it to the clock and do it asynchronously
 function timeToDegrees(time) {
-    const second = time.getSeconds() * 6 + time.getMilliseconds() * 0.006, minute = time.getMinutes() * 6 + time.getSeconds() * 0.1, hour = time.getHours() * 30 + (time.getMinutes() * 60 + time.getSeconds()) * 1/120;
+    const second = time.getSeconds() * 6 + (smooth? time.getMilliseconds() * 0.006 : 0), minute = time.getMinutes() * 6 + time.getSeconds() * 0.1, hour = time.getHours() * 30 + (time.getMinutes() * 60 + time.getSeconds()) * 1/120;
     hourBar.style.transform = `translate(-50%, -50%) rotate(${hour}deg)`
     minuteBar.style.transform = `translate(-50%, -50%) rotate(${minute}deg)`
-    secondBar.style.transform = `translate(-50%, -50%) rotate(${second}deg)`
+    secondBar.style.transform = `translate(-50%, -50%) rotate(${smooth? second : Math.ceil(second)}deg)`
 }
 
 setInterval(() => {
     timeToDegrees(new Date())
 }, 1)
 
+
+smoothBtn.addEventListener('click', () => {
+    smoothBtn.classList.toggle('on')
+    smooth = !smooth
+    
+})
