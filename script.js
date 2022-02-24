@@ -4,8 +4,8 @@ const clock = document.querySelector('.clock')
 const hourBar = document.getElementById('hour')
 const minuteBar = document.getElementById('minute')
 const secondBar = document.getElementById('second')
-const smoothBtn = document.getElementById('smooth')
-let smooth = false
+//const smoothBtn = document.getElementById('smooth')
+let smooth = true
 
 // display clock
 for(let i = 0; i <= 60;i++){
@@ -28,12 +28,14 @@ function timeToDegrees(time) {
 }
 
 setInterval(() => {
-    timeToDegrees(new Date())
+    const d = new Date()
+    timeToDegrees(d)
+    document.getElementById('digital-clock').innerText = `${d.getHours().toString().padStart(2, '0')}:${d.getMinutes().toString().padStart(2, '0')}:${d.getSeconds().toString().padStart(2, '0')}`
 }, 1)
 
 
-smoothBtn.addEventListener('click', () => {
-    smoothBtn.classList.toggle('on')
-    smooth = !smooth
+//smoothBtn.addEventListener('click', () => {
+//    smoothBtn.classList.toggle('on')
+//    smooth = !smooth
     
-})
+//})
