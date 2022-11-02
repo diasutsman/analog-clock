@@ -102,11 +102,6 @@ section {
     display: block;
 }
 
-body {
-    line-height: 1;
-    font-family: 'Product Sans';
-}
-
 ol,
 ul {
     list-style: none;
@@ -132,6 +127,21 @@ table {
 
 /* my style */
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    line-height: 1;
+    font-family: 'Product Sans';
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 1rem;
+}
+
 h1 {
     font-size: xx-large;
     margin: 16px;
@@ -139,27 +149,33 @@ h1 {
 }
 
 .clock {
-    width: 400px;
-    height: 400px;
+    max-width: 400px;
+    width: 100%;
+    aspect-ratio: 1/1;
     border: solid;
     border-radius: 50%;
-    margin: auto;
-    margin-top: 25px;
-    position: relative;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'clock';
+    place-items: center;
 }
 
 .second {
-    width: 2px;
-    height: inherit;
-    position: absolute;
+    height: 100%;
+    grid-area: clock;
+    display: flex;
+    flex-direction: column;
+    row-gap: 4px;
+    align-items: center;
+    z-index: 1;
+    /*position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);*/
 }
 
 .second .bar {
-    position: absolute;
-    top: 0;
     width: 2px;
 
     /* customizable */
@@ -170,45 +186,40 @@ h1 {
 .second .number {
     font-size: 20px;
     font-weight: bold;
-    left: 50%;
-    transform: translateX(-50%);
-    position: absolute;
-    top: 21px;
 }
 
 .center-dot {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
+    grid-area: clock;
+
     /* customizable */
     height: 5px;
     width: 5px;
     background-color: black;
     border-radius: 50%;
+    z-index: 2;
 }
 
 #second,
 #minute,
 #hour {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(0deg);
-    border-radius: 50%;
-    z-index: 12;
+    grid-area: clock;
+    height: 50%;
+    z-index: 1;
+    width: 3px;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transform-origin: center bottom;
+}
+
+#second {
+    width: 1px;
 }
 
 /* bars */
 
 #second div {
-    position: absolute;
-    bottom: -20px;
-    width: 1px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
     
     /* customizable */
     height: 200px;
@@ -217,11 +228,6 @@ h1 {
 
 
 #minute div {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    width: 2px;
-    transform: translateX(-50%);
     z-index: 10;
 
     /* customizable */
@@ -230,13 +236,6 @@ h1 {
 }
 
 #hour div {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 10;
-    width: 3px;
-
     /* customizable */
     height: 100px;
     background-color: black;
